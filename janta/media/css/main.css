@@ -1,0 +1,121 @@
+.headings{
+    font-family:'Helvetica',Arial, sans-serif; 
+    color:#68768B;
+    height:25px;
+    background:#ccc;
+    font-size: 1.2em;    
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#ddd));
+
+    /* Safari 5.1, Chrome 10+ */
+    background: -webkit-linear-gradient(top, #ddd, #ccc);
+
+    /* Firefox 3.6+ */
+    background: -moz-linear-gradient(top, #ddd, #ccc);
+
+    /* IE 10 */
+    background: -ms-linear-gradient(top, #ddd, #ccc);
+
+    /* Opera 11.10+ */
+    background: -o-linear-gradient(top, #ddd, #ccc);
+    background: linear-gradient(top, #ddd, #ccc);
+
+}
+
+
+#sections{
+    padding-top: -30px;
+    
+}
+
+#page-wrap{ 
+    width: 100%; 
+    position: relative; 
+    height: 430px;
+}
+
+.sections2{
+    background-color: #ededed;
+    width: 100%;
+   position: relative;
+    height: 430px; 
+   color: #68768B;
+    margin:0 auto ;
+  
+    float: right;
+    margin-right: 10%;
+    margin-bottom: 30px;
+    clear: both;
+     background-color: #dcdcdc;
+    box-shadow:0px 0px 8px #898989;
+}
+
+.sections2:hover{
+    background-color: #dcdcdc;
+    box-shadow:0px 0px 8px #898989;
+}
+
+.best_mp_mla{
+    background-color: #ededed;
+    width: 393px;
+   position: relative;
+    height: 260px; 
+    color: #68768B;
+    padding-right:1px;
+    float: right;
+   
+    margin-bottom: 30px;
+    clear: both;
+    font-family: Verdana, Arial, sans-serif;
+    transition: background-color 1s, color 2s, box-shadow 1s;
+    
+     background-color: #dcdcdc;
+    box-shadow:0px 0px 8px #898989;
+}
+
+.best_mp_mla:hover{
+    background-color: #dcdcdc;
+    box-shadow:0px 0px 8px #898989;
+}
+
+.mp_mla_frame{
+     width:50%;
+     height:85%;
+     box-shadow: inset 0 0 20px #000000;
+     position:absolute;
+     top:0; 
+      
+}
+
+.mp_mla_frame:hover{
+    box-shadow: inset 0 0 0px #000000;
+}
+
+#best_names{
+    color:#ccc;
+    text-decoration: none;
+}
+
+#best_names:hover{
+    text-decoration:underline;
+}
+
+
+.contents2{
+    
+
+    margin:auto;
+    width:100%;
+    height:450px;
+    padding:0px;
+    overflow: hidden;
+    position: relative;
+    float:right;
+    margin:0 auto
+}
+
+
+
+.newscontent2{
+    height:150px;  
+    position: relative; 
+}

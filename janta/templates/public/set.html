@@ -1,0 +1,38 @@
+{% extends 'public/homepage2.html'%}
+<html>
+
+{% block content %}
+<body >
+	 
+	<div id="wrap" style="padding:20px;">
+		 <div id="change_password">
+            <p>Change Password</p>
+            <form>
+            <table id="password">
+                <tr><td>Enter current password: </td>
+                    <td><input type="password" name="curr_pass"></input></td></tr>
+                <tr><td>Enter new password: </td>
+                    <td><input type="password" name="new_pass"></input></td></tr>
+                <tr><td>Re-enter new password: </td>
+                    <td><input type="password" name="renew_pass"></input></td></tr>
+            </table>
+
+            <p>Change Profile Image</p>
+            
+            <input type="submit" class="btn btn-primary" value="Save"></submit>
+            <input type="button" class="btn" value="Cancel" onclick=location.href='/settings/'>
+
+            </form>
+
+
+        </div>
+
+ 
+
+
+
+{% endblock %}
+</body>
+
+</html>
+

@@ -1,0 +1,21 @@
+#user_data
+{
+	width:80%;
+	height: 10%;
+	margin:0 auto;
+}
+
+#boidata
+{
+	background-color: gray;
+}
+
+#change_password{
+	display:none;
+}
+
+ input.btn {
+clear: left;
+width: 290;
+height: 32px;
+font-size: 13px;

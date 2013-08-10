@@ -1,0 +1,103 @@
+{%extends "public/homepage2.html"%}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+{%block js%}
+<script src="/media/jquery/jquery.js"></script>
+<script src="/media/jquery/bootstrap-dropdown.js"></script>
+<script type="text/javascript" src="/media/jquery/jquery.custom-scrollbar.js"></script>
+<script type="text/javascript"src=" http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="/media/jquery/navbar.js"></script>
+<script type="text/javascript" src="/media/jquery/comment.js"></script>
+<script type="text/javascript" src="/media/jquery/locality.js"></script>
+{%endblock%}
+
+{%block css%}
+<link href="/media/css/boot2.css" rel="stylesheet"> 
+<link rel="stylesheet" type="text/css" href="/media/css/navbar.css">
+<link rel="stylesheet" type="text/css" href="/media/css/jquery.custom-scrollbar.css">
+<link rel="stylesheet" type="text/css" href="/media/css/main.css">
+<link rel="stylesheet" type="text/css" href="/media/css/locality.css">
+{%endblock%}
+</head>
+{%block sections%}
+
+<div id="wrap">
+  <div class="detail_issue">
+    
+    <div class="detail_body">
+      <div style="width:100%; ">
+      <ul>
+    <li style="display:inline;">
+      <p style="font-size:2em;"><i>{{p.subject}}</p></i></li>
+      <li style="display:inline;float:right;">
+      {%if user.get_profile.isPolitician%}
+              <button class="btn btn-success" >Mark As Solved</button>
+              {%endif%}
+       </li>
+      </ul></div>
+      <br>
+      <br><p style="font-size:1.2em;">{{p.post}}</p>
+
+        
+      <br>
+      <div id="dateissued" style="float:right;">
+        <I> Date:{{p.Date}}</I> <br>
+      </div>
+      <br><br>
+    </div>
+    <br>
+    <b style="margin-left:5%;font-size:1.2em;"><i>Comments</i></b>
+    <div id="post_comment" >
+            {%for c in comments %}
+                <p>{{c.comment}} {{c.Date}}</p>
+                <ul>
+                <li style="display:inline;" id="Support">
+                <div style="height:2px;"></div>
+                <a href="">
+                <div class="arrow-up"></div></a></li>
+                <li style="margin-top:6px;"> <label>&nbsp;0&nbsp;</label></li>
+                <li style="display:inline;" id="Support">
+                <div style="height:9px;"></div>
+                <a href="">
+                <div class="arrow-down"></div></a></li>
+                <li style="display:inline;">
+                  &nbsp;&nbsp;
+                <button style="backgorund:transparent;border:none;color:#EA0F14;font-size:0.9em;margin-top:4px;"value="Mark as Spam" onclick="spam()">Mark as Spam</button></li>
+                </ul>
+                <br>
+                  <hr style="border-top: 1px solid #000;border-bottom: transparent;width:80%;">
+            {%endfor%}
+            <br>
+            {%if user.is_authenticated%}
+            <form action="." method = "POST" >{%csrf_token%}
+              
+              <textarea rows="4" cols="50" style="width:700px;height:100px;" type="text" name="comment"  Placeholder="Comment"></textarea><br>
+              
+              
+              <!--check here whether user is Politician or not if yes then show following-->
+              
+              
+              <btn class="btn btn-primary"  type ="submit" value="Comment" >Comment</btn>
+            </form>
+            {%else%}
+              <p>Please <a href="/login/">Log In</a> to comment<p>
+            {%endif%}
+
+                  
+        </div>
+
+  </div> 
+
+ </div>
+{%endblock%}
+</html>
+
+
+
+
+
+ 
+

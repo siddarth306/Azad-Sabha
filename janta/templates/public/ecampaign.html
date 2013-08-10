@@ -1,0 +1,45 @@
+{%extends "public/homepage2.html"%}
+<html>
+<title>
+	E-Campaigning
+</title>
+
+
+<head>
+	{%block js%}
+	 <script src="/media/jquery/jquery.js"></script>
+    <script src="/media/jquery/bootstrap-dropdown.js"></script>
+    <script type="text/javascript" src="/media/jquery/jquery-1.2.6.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
+	<script type="text/javascript" src="/media/jquery/navbar.js"></script>
+	<script src="jquery/jquery-1.9.1.js"></script>
+	<script src="jquery/jquery-ui.js"></script>
+   	<script src="politics.js"></script>
+   	{%endblock%}
+   	{%block css%}
+   	 <link href="/media/css/boot2.css" rel="stylesheet"> 
+   	  <link rel="stylesheet" type="text/css" href="/media/css/navbar.css">
+	<link rel="stylesheet" href="/mediajquery/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="style/style2.css">
+	<link href="jquery/mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+	{%endblock%}
+</head>
+
+<body> 
+	{%block content%}
+	<div id="wrap" style="padding:3%;">
+	<form action="." method="post" style="height:500px;">{% csrf_token %}
+		<label>Name: </label><input type="text" name="name" id="name" placeholder="Your Name">
+<br>
+<label>Message</label><br>
+<textarea name="msg" id="msg" style="border:1px solid gray;"rows="10" cols="60" placeholder="Your Message"></textarea>
+<br>
+<label>Future Plans</label><br>
+<textarea name="future_plans" id="future_plans" style="border:1px solid gray;"rows="10" cols="60" placeholder="Your Message"></textarea>
+<br>
+<input type="submit" name="submit" value="Submit" />
+</form>
+
+</div>
+{%endblock%}
+</body>

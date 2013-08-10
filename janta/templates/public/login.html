@@ -1,0 +1,84 @@
+
+{% extends 'public/homepage2.html' %}
+{%block content%}
+{%block css%}
+
+<link href="/media/css/boot2.css" rel="stylesheet"> 
+<link rel="stylesheet" type="text/css" href="/media/css/navbar.css">
+<link rel="stylesheet" type="text/css" href="/media/css/main.css">
+<link rel="stylesheet" type="text/css" href="/media/css/style3.css" />
+<link rel="stylesheet" type="text/css" href="/media/css/user.css" />
+{%endblock%}
+<div  id="wrap">
+	<div  style="background:#444;width:700px;height:380px;margin:auto;padding:10px;">
+    <ul style="margin:20px 20px 0px 20px;height:210px;width:800px;">
+        <li  style="display:inline;width:325px;height:210px;border-right:1px solid #ccc;z-index:0;">
+        	<label style="font-size:1.5em;color:#ccc;"><i>Login</i></label>
+            <form style="margin:0px;margin-right:20px;" accept-charset="UTF-8" action="." method="POST">{%csrf_token%}
+                <div style="margin:0;padding:0;display:inline">
+                    <input name="utf8" type="hidden" value="&#x2713;" />
+                    <input name="authenticity_token" type="hidden" value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40=" />
+                </div>
+                <fieldset class='textbox' style="margin-right:20px;padding:5px;width:290px;height:170px;">
+                   
+                    <input  name="username" id="username" style="margin-top:2px;width:290px;height:30px;" type="text" placeholder="Username" />
+                    <input type="password" name="password" style="margin-top:2px;width:290px;height:30px;" type="password" placeholder="Passsword" />
+                    <ul style="margin:0;padding:0;"><li style="display:inline;">
+                     <input type="checkbox" id="checkbox" /></li>
+                     <li style="display:inline;"><label style="color:#ccc;white-space:nowrap;">Remember me</label></li></ul>
+                    <input class="btn btn-primary" name="commit" type="submit" value="Log In" />
+                     
+
+                </fieldset>
+            </form>
+        </li>
+        <li style="display:inline;z-index:999;">
+            <div style="width:350px;height:210px;padding-left:4px;">
+                <div style="width:100%;">
+                    <label style="font-size:1.5em;color:#ccc;margin:auto;width:210px;"><i>Alternatively, Login with</i></label>
+                </div>
+
+                <div style="width:100%;"><br><img src="/media/icons/down_arrow.png" style="margin-left:160px;"></div>
+                <div style="width:140px;height:140px;margin:auto;">
+                <div style="width:100%;height:30px;margin-bottom:5px;">
+                    <a href="" style="cursor:hand;width:200px;margin:0;padding:0px;margin:auto;height:30px;">
+                        <ul style="margin:0;padding:0;">
+                            <li style="display:inline;"><img src="/media/icons/facebook.png" style="width:30px;height:30px;"></li><li  style="display:inline;width:5px;height:20px;"></li><li style="display:inline;padding-top:5px;"><p style="color:#466cb0;font-size:1.2em;"><i><b>Facebook</b></i></p></li>
+                        </ul>
+                    </a>
+                </div>
+                <div style="width:100%;height:30px;margin-bottom:5px;">
+                    <a href="" style="height:30px;cursor:hand;width:200px;margin:0;padding:0px">
+                        <ul  style="margin:0;padding:0;">
+                            <li style="display:inline;"><img src="/media/icons/twitter-oauth.png" style="width:30px;height:30px;"></li><li  style="display:inline;width:5px;height:20px;"></li><li style="display:inline;"><p style="color:#00aced;"><i><b>Twitter</b></i></p></li>
+                        </ul>
+                    </a>
+                </div>
+                <div style="width:100%;height:30px;">
+                    <a href="" style="height:100%;cursor:hand;width:100%;margin:0;padding:0px;">
+                        <ul  style="margin:0;padding:0;">
+                            <li style="display:inline;"><img src="/media/icons/google_logo.jpg" style="width:30px;height:30px;"></li><li  style="display:inline;width:5px;height:20px;"></li><li style="display:inline;"><p style="color:#c33b2b;"><i><b>Google</b></i></p></li>
+                        </ul>
+                    </a>
+                </div>
+             </div>   
+            </div>
+        </li>
+    </ul>
+    <div style="width:100%;margin:auto;">
+    <label style="color:#ccc;margin:auto;width:15px;">or</label>
+  <br>
+     <label  style="color:#ccc;margin:auto;width:200px;"><a class="btn btn-success" style="width:200px;height:25px;padding-top:6px;" href="#"><b>Create A New Account</b></a></label>
+    </div>
+ 	 </div>  
+ </div>
+              
+
+                    
+                         
+              
+                   
+	
+{%endblock%}
+
+

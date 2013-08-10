@@ -1,0 +1,138 @@
+{%extends "public/homepage2.html"%}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+{%block js%}
+
+<script type="text/javascript" src="/media/jquery/jquery.custom-scrollbar.js"></script>
+<script type="text/javascript"src=" http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="/media/jquery/navbar.js"></script>
+<script type="text/javascript" src="/media/jquery/comment.js"></script>
+{%endblock%}
+
+{%block css%}
+<link rel="stylesheet" type="text/css" href="/media/css/navbar.css">
+<link rel="stylesheet" type="text/css" href="/media/css/jquery.custom-scrollbar.css">
+<link rel="stylesheet" type="text/css" href="/media/css/main.css">
+<link rel="stylesheet" type="text/css" href="/media/css/locality.css">
+{%endblock%}
+</head>
+
+
+	{%block sections%}
+
+
+<div class="locality_choose" style="height:6%; width:100%; "  >
+  <div style=" margin:1% 1% 1% 1% ; "align:"center"></div>
+   
+      <!--   
+        <select id="loc_state" style="width: 200px;"
+              onchange="$('input#text4').val($(this).val());">
+      <option>Maharashtra</option>
+      <option>option 2</option>
+      <option>option 3</option>
+  </select>
+   <select id="loc_city" style="width: 200px;"
+              onchange="$('input#text4').val($(this).val());">
+      <option>pune</option>
+      <option>Nashik </option>
+      <option>option 3</option>
+  </select>
+  -->
+    <div style="height:10%;width:30%;position:relative;float:left;">
+      <select id="loc_area" style="width: auto;float:left;" onchange="$('input#text4').val($(this).val());">
+          <option>Oxford village</option>
+          <option>SB rod</option>
+          <option>KP</option>
+      </select>
+
+      <input type="checkbox" name="recieve_update" value="Recieve">Recieve updates for this Locality<br>
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="locality_mp" style="height:45%; width:25%; " style="Float:left" >
+    
+      <div class="contents default-skin" align="left">
+      <ul align="left">
+      
+          <li style="width:100%;height:8%">
+            Name: Name of MP Solved Issue: 10
+            <div class="mpimage"><img src="/media/icons/mp1.jpg" style="width:30%;height:65%;">
+           
+          <a href="{% url homepage_post%}">Post an issue</a>
+                    <input type="submit" value="Make Suggestion" >
+            </div>
+              
+          </li>
+       
+            <li style="width:100%;height:8%">
+            Name: Name of MLA Solved Issue: 10
+
+            <div class="mpimage"  >
+              <img src="/media/icons/mp2.jpg" style="width:30%;height:65%;">
+             <a href="{% url homepage_post%}">Post an issue</a>
+                   <input type="submit" value="Make Suggestion" >
+            </div>
+           
+          </li>
+             
+        </ul>
+  </div>
+      <a class="foot" style="" href="#CorporateMPMLAOFTHISLOCALITY ">See ALL</a>
+</div>
+   
+<div style="Float:right" class="locality_issue"  >
+  
+
+   <div align="right" class="contents default-skin" >
+      <li align="right"  class="newselements"><div align="right" class="newsheader">
+        <a style="text-decoration:none;color: #68768B;" href="#reported"><h4>ReportedIssue</h4></a>
+        <a style="text-decoration:none;color: #68768B;" href="#pending"><h4> pendingIssues</h4></a>
+        <a style="text-decoration:none;color: #68768B;" href="#solved"><h4>SolvedIssues</h4></a>
+
+      </div>
+
+</div>
+
+</div>
+
+<div>
+
+    
+</div>
+
+<class="post"><div class="public_posts" style="Float:center"><a style="text-decoration:none;color: #68768B;" href=""><h4>Public Posts</h4></a>
+
+ 
+
+ <div id="post_public" ><form name="frm">THIs is my pst regarding you polititian<br>
+ <textarea style="width:300px;height:50px;" type="text" name="comment" id="comment" Placeholder="Wht do you think"></textarea>
+ <br><div id="comment_button"><input type="button" value="share"onclick="get()"/>
+ </div></form></div>
+ <div id="post_public1">
+ <div class="post_public" id ="post1" style="width:40%;">
+  </div>
+    
+
+
+
+
+<!--
+
+{% for post in public_posts %}
+        
+    <div class="post"><p>
+      this is post
+    </p></div>
+   {% endfor %}
+            
+          </li>
+          {%endblock%}
+
+-->
+</html>

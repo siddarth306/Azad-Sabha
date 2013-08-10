@@ -1,0 +1,237 @@
+.post_issue_container{
+    width: 90%;
+    position: relative;
+    height: 80%;
+    background-color:#BBC0C3;
+    border-radius:8px;
+    margin:auto ;
+    padding:3px;
+
+}
+.locality_mp{
+    width: 30%;
+    height: 60%;
+  
+   position:relative;
+    
+	
+    border-radius:4px;
+    
+    padding:2px;
+
+
+}
+.mpimage{
+
+	height:100px;
+	width: 100px;
+	
+	position: relative;
+	
+	
+}
+
+.locality_choose{
+	
+   
+   
+    position:relative;
+    background:#cdcdcd;
+    height:40%; 
+    width:50%; 
+ 
+    border-radius:2px;
+    margin:2% auto;
+    padding:2px;
+
+
+}
+
+.post_public{
+
+position:relative;
+width:90%;
+height:100px;
+
+
+ padding:.5%;
+ border-bottom: 1px;
+ border-bottom-style: solid;
+
+/*
+-webkit-transform:rotate(0deg);
+*/
+}
+.post_public:hover { background-color: #E0FFFF; }
+
+
+#post_title:hover { 
+
+  background:transparent; 
+text-decoration:underline; }
+
+ 
+.detail_body{
+
+left:5%;
+position:relative;
+width:90%;
+height: 100px;
+
+padding:.5%;
+
+
+}
+.detail_issue{
+
+margin:2%;
+
+position:relative;
+width:100%;
+height: relative;
+border-width: 2px;
+ padding:.5%;
+ background:#dedede;
+
+
+}
+
+#title_detail{
+  width: 30%;
+  border-bottom: 2px;
+}
+
+#comment_public{
+  padding-left:450px;
+position:relative;
+}
+#post_comment{
+
+left:10%;
+position:relative;
+
+}
+#post_public1{
+
+left:50%;
+width:0%;
+}
+
+textarea#comment {
+ min-width: 400px;
+ min-height: 50px;
+ max-width: 400px;
+ max-height: 50px;
+border: 1px solid #cccccc;
+ padding: 5px;
+ font-family: Tahoma, sans-serif;
+
+}
+
+
+#comment_button {
+   border-top: 1px solid #96d1f8;
+   background: #65a9d7;
+
+   background: -webkit-gradient(linear, left top, left bottom, from(#7dc5f5), to(#65a9d7));
+   background: -webkit-linear-gradient(top, #7dc5f5, #65a9d7);
+   background: -moz-linear-gradient(top, #7dc5f5, #65a9d7);
+   background: -ms-linear-gradient(top, #7dc5f5, #65a9d7);
+   background: -o-linear-gradient(top, #7dc5f5, #65a9d7);
+   padding: 6.5px 13px;
+   width: 100px;
+   -webkit-border-radius: 19px;
+   -moz-border-radius: 19px;
+   border-radius: 19px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 13px;
+   font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+#comment_button:hover {
+   border-top-color: #28597a;
+   background: #28597a;
+   color: #ccc;
+   }
+#comment_button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+
+#spam_button{
+   border-top: 1px solid #96d1f8;
+   background: #d10000;
+   background: -webkit-gradient(linear, left top, left bottom, from(#e60e0e), to(#d10000));
+   background: -webkit-linear-gradient(top, #e60e0e, #d10000);
+   background: -moz-linear-gradient(top, #e60e0e, #d10000);
+   background: -ms-linear-gradient(top, #e60e0e, #d10000);
+   background: -o-linear-gradient(top, #e60e0e, #d10000);
+   padding: 3.5px 7px;
+   -webkit-border-radius: 17px;
+   -moz-border-radius: 17px;
+   border-radius: 17px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 12px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+#spam_button:hover {
+   border-top-color: #28597a;
+   background: #28597a;
+   color: #ccc;
+   }
+#spam_button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+
+
+.arrow-up {
+  width: 0; 
+  height: 5px; 
+  padding-top: 2px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  
+  border-bottom: 11px solid #333;
+}
+
+.arrow-up:hover{
+  width: 0; 
+  height: 5px; 
+  padding-top: 2px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  
+  border-bottom: 11px solid #0088cc;
+}
+
+.arrow-down {
+  width: 0; 
+  height: 5px; 
+  padding-top: 2px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  
+  border-top: 11px solid #333;
+}
+
+.arrow-down:hover{
+  width: 0; 
+  height: 5px; 
+  padding-top: 2px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  
+  border-top: 11px solid #0088cc;
+}

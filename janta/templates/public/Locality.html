@@ -1,0 +1,85 @@
+{%extends "public/homepage2.html"%}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+{%block js%}
+    <script src="/media/jquery/jquery.js"></script>
+    <script src="/media/jquery/bootstrap-dropdown.js"></script>
+<script type="text/javascript" src="/media/jquery/jquery.custom-scrollbar.js"></script>
+<script type="text/javascript"src=" http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="/media/jquery/navbar.js"></script>
+<script type="text/javascript" src="/media/jquery/comment.js"></script>
+<script type="text/javascript" src="/media/jquery/locality.js"></script>
+{%endblock%}
+
+{%block css%}
+
+<link rel="stylesheet" type="text/css" href="/media/css/navbar.css">
+<link rel="stylesheet" type="text/css" href="/media/css/main.css">
+<link rel="stylesheet" type="text/css" href="/media/css/locality.css">
+<link href="http://www.w3resource.com/twitter-bootstrap/twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
+{%endblock%}
+</head>
+{%block sections%}
+  <div id="wrap">
+      <div id="locality_chooser" class="locality_choose"  style="height:200px; width:95%;position:relative;margin:3%;" >
+        <ul >
+          <li style="display:inline;float:left;color:#333;padding:1%"><p style="font-size:1.5em"><i>Locality: {{user.get_profile.locality}}</i></p><br></li><br>
+          <li style="display:inline;float:right;"><br><p ><a href="{% url homepage_post%}" class="btn btn-primary" style="margin: 5px 5px 0 0;">Post an issue</a></p></li>
+        </ul>
+        <ul style="width:100%;margin:3%;height: 175px;">
+        <li style="margin-right:100px;">
+          <div id="MP" style="positoin:relative">
+            <p style="font-size:1.5em;"><b>MP</b><p>
+            <img src="/media/icons/mp1.jpg" style="width:100px;height:100px;">         
+          </div>
+        </li>    
+        <li style="margin-right:100px;">
+          <div id="MP">
+            <p style="font-size:1.5em;"><b>MLA</b></p>
+            <img src="/media/icons/mp1.jpg" style="width:100px;height:100px;">          
+          </div>     
+        </li>      
+      </ul>
+      </div>
+
+      
+               
+              
+    
+      <div id="locality_chooser" class="locality_choose"  style="height:5%; width:95%;position:relative;margin:3%;" >
+        <p style="font-size:1.5em;padding:1%;"><i>Posted Issues</i></p>
+      </div>
+
+      <div style="margin:3%;width:100%">
+        <div id="post_status" style="float:left; top:10px; width:100%;background:transparent;">
+      {% for a in posts %}
+        
+          <div id="post_container" class="post_public">
+            <div id="post_title3lines">
+              <div id="post_title" >
+                <a href="/post/{{a.id}}">{{a.subject}}</a>
+              </div>
+
+              <div id ="post_3lines">
+                <i>
+                  {{a.post}}
+                </i>
+              </div> 
+              <br>
+              <div id="dateissued" style="float:right;">
+                <I> Date:{{a.Date}}</I> 
+              </div>
+            </div>
+          </div>
+
+      {%endfor%}
+      </div>
+    </div>
+ 
+
+
+</html>
+{%endblock%}

@@ -1,0 +1,18 @@
+{% extends 'public/homepage2.html' %}
+<html>
+<body>
+	{% block content %}
+<br>
+	<form action='/postproblem/' method='post'>
+	{%csrf_token%}
+	<div id="wrap">
+	{{form.as_p}}
+	<br>
+	<input type="submit" value="Post" >
+	<br>
+	</form>
+	</div>
+{% endblock %}
+
+</body>
+</html>

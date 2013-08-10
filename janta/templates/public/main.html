@@ -1,0 +1,307 @@
+{%extends "public/homepage2.html"%}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+{%block js%}
+
+<script src="/media/jquery/jquery.js"></script>
+<script src="/media/jquery/bootstrap-dropdown.js"></script>
+
+<script type="text/javascript" src="/media/jquery/jquery-1.2.6.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
+<script type="text/javascript" src="/media/jquery/navbar.js"></script>
+<script type="text/javascript" src="/media/jquery/main.js"></script> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.3/jquery-ui.min.js" ></script> 
+<script type="text/javascript" src="/media/jquery/jquery-1.3.2.min.js" ></script>
+<script type="text/javascript" src="/media/jquery/jquery-ui-1.7.2.custom.min.js" ></script>
+
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $("#featured").tabs({fx:[{opacity: "toggle", duration: 'slow'}, {opacity: "toggle", duration: 'normal'}],
+        show: function(event, ui)
+        {
+            $('#featured .ui-tabs-panel .info').hide();
+            var infoheight=$('.info', ui.panel).height();
+            $('.info', ui.panel).css('height', '0px').animate({ 'height': infoheight }, 500);
+        }
+    }).tabs("rotate", 5000, true);
+    
+    $('#featured').hover(
+        function(){ $('#featured').tabs('rotate', 0, true); },
+        function(){ $('#featured').tabs('rotate', 5000, true); }
+    );
+    
+    $('#featured .ui-tabs-panel a.hideshow').click(function()
+    {
+        if($(this).text()=='Hide'){
+            $(this).parent('.info').animate({ 'height': '50px' }, 500);
+            $(this).text('Expand');
+        }
+        else
+        {
+            $(this).parent('.info').animate({ 'height': '130px' }, 500);
+            $(this).text('Hide');
+        }
+        return false;
+    });
+
+    $('#tabMenu li').click(function(){
+        if (!$(this).hasClass('selected')) {    
+            $('#tabMenu li').removeClass('selected');
+            $(this).addClass('selected');
+            $('.boxBody div.parent').hide();
+            $('.boxBody div.parent:eq(' + $('#tabMenu > li').index(this) + ')').show();
+        }
+    });
+
+    (function(d, s, id) 
+    {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "http://connect.facebook.net/en_GB/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+});
+</script>
+{%endblock%}
+
+{%block css%}
+<link href="/media/css/boot2.css" rel="stylesheet"> 
+<link rel="stylesheet" type="text/css" href="/media/css/tabs.css">
+<link rel="stylesheet" type="text/css" href="/media/css/navbar.css">
+<link rel="stylesheet" type="text/css" href="/media/css/main.css">
+<link rel="stylesheet" type="text/css" href="/media/css/style3.css" />
+
+<style type="text/css" >
+  #featured .ui-tabs-panel .info{
+    display:none;
+  }
+</style>
+{%endblock%}
+</head>
+
+<body >
+{%block sections%}
+<div id ="wrap" > 
+    <div id="fb-root"></div>
+    <!-- ................................News Of The Day...................................... -->
+    <ul style="height:430px;">
+        <li style="display:inline;float:left;">
+            <div id="page-wrap"> 
+                <br><br>
+                
+                <div style="box-shadow:0px 0px 8px #898989">
+                <label class="headings" align="center"> <i>News of the Day</i></label>         
+                <div id="featured" >
+                 
+                    {%for header,info,image,icon,id in news%}
+                        {%ifequal id 1%}   
+                            <div id="fragment-{{id}}" class="ui-tabs-panel" style="">
+                                {%ifequal icon "None" %}
+                                <div style="width:100%;height:100%;">
+                                    <p>{{header}}</p><p>{{info}}</p></div>
+                                {%else%}
+                                <img src="/media/news/image{{id}}.jpg" alt="" style="width:100%;height:100%"  onError="this.onerror=null;this.src='/media/news/icon{{id}}.jpg';"/>
+                                <div class="info" >
+                                    <a class="hideshow" href="http://www.indianexpress.com/section/politics/799/" target="_blank" >Expand</a>
+                                    <label style="font-size:1.2em;line-height:25px;"><a href="#" style="margin-bottom:10px;">{{header}}</a></label>
+                                    &nbsp<p style="margin-top:10px;">{{info}}<a href="#" >read more</a></p>
+                                </div>
+                                {%endifequal%}
+                            </div>
+                        {%else%}
+
+                            <div id="fragment-{{id}}" class="ui-tabs-panel ui-tabs-hide" style="">
+                                {%ifequal icon "None" %}
+                                <div style="width:100%;height:100%;">
+                                    <p>{{header}}</p><p>{{info}}</p></div>
+                                {%else%}    
+                                <img src="/media/news/image{{id}}.jpg" alt="" style="width:100%;height:100%"  onError="this.onerror=null;this.src='/media/news/icon{{id}}.jpg ';"/>
+                                <div class="info" >
+                                    <a class="hideshow" href="#" >Expand</a>
+                                    <label style="font-size:1.2em;"><a href="#" >{{header}}</a></label>
+                                    <p>{{info}}<a href="http://www.indianexpress.com/section/politics/799/" target="_blank" >read more</a></p>
+                                </div>
+                                {%endifequal%}
+
+                            </div>
+                        {%endifequal%}
+                    {%endfor%}
+              
+
+                    <ul class="ui-tabs-nav">
+                        {%for header,info,image,icon,id in news%}
+                            {%ifequal id 1%}
+                                
+                                <li class="ui-tabs-nav-item ui-tabs-selected" id="nav-fragment-{{id}}"><a href="#fragment-{{id}}">
+                                    {%ifnotequal icon "None" %}
+                                    <img src="/media/news/icon{{id}}.jpg" alt="" style="width:80px;height:50px;" /> {%endifnotequal%}
+                                    <span style="">{{header}}</span></a></li>
+                               
+                            {%else%}
+                       
+                                <li class="ui-tabs-nav-item" id="nav-fragment-2"><a href="#fragment-{{id}}">
+                                    {%ifnotequal icon "None" %}<img src="/media/news/icon{{id}}.jpg" alt="" style="width:80px;height:50px;" /> {%endifnotequal%}<span>{{header}}</span></a></li>
+                             
+                            {%endifequal%}
+                        {%endfor%}
+                    </ul>
+
+                </div>
+                 <label style="margin-left:500px;"><i>credits: <a href="http://www.indianexpress.com/section/politics/799/" target="_blank">Indian Express</a></i></label>
+                </div>
+                
+            </div>
+        </li>
+
+        <!-- ................................................................................................ -->
+
+        <!-- .....................................Social Network............................................. -->
+
+        <li style="display:inline;float:right;width:39.2%;">
+            <div style="width:100%;height:38px;float:right;"></div>
+            <div class="box">
+                <ul id="tabMenu">
+                    <li class="facebook selected"></li>
+                    <li class="twitter"></li>
+
+                </ul>
+                <div class="boxTop"></div>
+                <div class="boxBody">
+                    <div id="facebook" class="show parent">
+                        <div style="background:white;height:312px;">
+                            <div class="fb-like-box" data-href="http://www.facebook.com/ROFLindia" data-width="375" data-show-faces="true" data-stream="false" data-show-border="true" data-header="true"></div>
+                        </div>
+
+                    </div>  
+
+                    <div id="twitter" class="parent">
+                        <div style="background:white;height:305px;">
+                           <a class="twitter-timeline" href="https://twitter.com/narendramodi" data-widget-id="347796475998265344">Tweets by @narendramodi</a>
+                                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+                                </script>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </li>
+    </ul>
+      <!-- ................................................................................................ -->
+        
+
+    <ul style="margin:0;padding:0;width:1100px; height:520px; position:relative;">         
+        <li style="display:inline;width:62%;height:100%; " >
+           <ul>
+                <!-- .................................Top Trending Topics.................................................. -->
+                <li style="display:block;width:80%;height:100%; ">
+                    <div class="sections2" style="float:left;width:647px;height450px;">  
+                       
+ 
+                        <div class="contents2 ">
+                            <label class="headings" align="center">Trending Topics</label>
+                            <table class="table table-striped">  
+                                <thead>  
+                                  <tr>  
+                                    <th>Date</th>  
+                                    <th>Issues</th>  
+                                    <th>Hits</th>  
+                                     
+                                  </tr>  
+                                </thead>  
+                                <tbody> 
+                                {%for p in posts%} 
+                                  <tr>  
+                                    <td>{{p.Date}}</td>  
+                                    <td><i class="icon-play-circle "></i><a href="/post/{{p.id}}">{{p.subject}}</a></td>  
+                                    <td>0</td>  
+                                  
+                                  </tr>
+                                  {%endfor%}
+
+
+                                  
+                                 
+                                </tbody>  
+                              </table>  
+
+                        </div> 
+                     
+                    </div>
+                </li>
+                <!-- ................................................................................................ -->
+
+                <li style="display:block;width:100%; ">
+                    
+                </li>
+              
+            </ul>
+        </li>
+                
+        <li style="display:inline;width:36.5%;float:right;">
+            <ul style="width:100%;height:800px;margin:0;padding:0;">
+                 <!-- ..................................Best mp,mla................................................... -->
+                <li style="width:401px;">
+                    <div class="best_mp_mla" >  
+                        <label  class="headings" align="center"><i>Best MP & MLA</i></label>
+                        <ul style="display:inline;margin:10px;padding:0px;width:374px;;height:235px;position:absolute;">
+                            <li style="display:inline;height:200px;">
+                                <div>
+                                <img src="/media/icons/mp1.jpg" style="width:185px;height:200px;">
+                                
+                                <div style="width:49%;height:26%;position:absolute;top:140px;left:0;background:rgba(0,0,0,0.7);">
+                                    <ul style="margin:0; padding:4% 10% 0% 10%;font-size:11px;color:#ccc;font-weight:bold;height:61px; "><li style="margin:auto;width:161px;" ><label style="width:161px;color:#ccc;" align="center">Best MP:</label></li><br>
+                                    
+                                    </ul>                       
+                                </div>
+                                <div class="mp_mla_frame">
+                                    <div style="width:100%;height:12px;position:absolute;font-size:13px;top:165px;text-align: center;">
+                                    <a href="" id="best_names"><b>Narendra Modi</b></a>
+                                </div>
+                            </div>
+                            </li>
+                            <li style="display:inline;height:200px;">
+                                <img src="/media/icons/kejriwal.jpg" style="width:185px;height:200px;">
+                                
+                                <div style="width:49.5%;height:26%;position:absolute;top:140px;left:49.5%;background:rgba(0,0,0,0.7);border-left:1px solid gray;">
+                                    <ul style="margin:0; padding:4% 10% 0% 10%;font-size:11px;color:#ccc;font-weight:bold;height:61px; "><li style="margin:auto;width:161px;" ><label style="width:161px;color:#ccc;" align="center">Best MLA:</label></li><br>
+                                    </ul>                      
+                                </div>
+                                <div class="mp_mla_frame" style="border-left:none;">
+                                     <div style="width:100%;height:12px;position:absolute;font-size:13px;top:165px;text-align: center;">
+                                    <a href=""  id="best_names" ><b>Arvind Kejriwal</b></a>
+                            </div>
+                            </li>
+                        </ul>  
+                    </div>
+                </li>
+                <!-- .................................................................................................. -->
+
+                <!-- .....................................Upcoming Interactions...................................... -->
+                <li style="width:100%;">
+                    <div class="sections2" style="width:393px;height:225px;margin:0;">  
+                       <label class="headings" align="center"><i>Upcoming Interactions</i></label>
+                       <div style="background:white;width:95%;height:70%;margin:auto;"> 
+
+                       <div style="width:98.5%;height:suto;background:#E0FFFF;padding:3px;font-size:14px;"><a href="#" style="color:#0088cc;">Uttarakhand floods</a><i>-Narendra Modi</i></address><b style="font-size:14px;"> @12/07/2013, 12:00pm</b></div> 
+
+                        <div style="width:98.5%;height:suto;background:#FFF;padding:3px;font-size:14px;"><a href="#" style="color:#0088cc;">BJP's Future India Model</a><i>-Narendra Modi</i></address><b style="font-size:14px;"> @13/07/2013, 1:00pm</b></div>
+
+                         <div style="width:98.5%;height:suto;background:#E0FFFF;padding:3px;font-size:14px;"><a href="#" style="color:#0088cc;">Congress's Future India Model</a><i>-Kapil Sibal</i></address><b style="font-size:14px;"> @15/07/2013, 10:00am</b></div> 
+                       </div> 
+
+                    </div>
+                </li>
+                <!-- ................................................................................................ -->
+
+            </ul>
+        </li>
+        
+    </ul>
+</div>
+{%endblock%}
+</body>
+</html>

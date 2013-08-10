@@ -1,0 +1,65 @@
+<!--{% extends }-->
+<html>
+<title>
+	Politician Profile
+</title>
+<head>
+	<link rel="stylesheet" href="jquery/jquery-ui.css" />
+	<script src="jquery/jquery-1.9.1.js"></script>
+	<script src="jquery/jquery-ui.js"></script>
+   	<script src="politics.js"></script>
+	<link rel="stylesheet" type="text/css" href="style/style2.css">
+	<link href="jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div>
+	<ul id="nav">
+		<li><a href="#CurrentStatus">Current Status</a></li><br><br><br>
+		<li><a id="RC" href="#ReportCard">Report Card</a></li>
+	<ul id="navigation">
+		<li><a style="height:40px;" href="#Pending Issues">Pending Issues</a></li>
+		<li><a href="#Reported Issues">Reported Issues</a></li>
+		<li><a href="#Solved Issues">Solved Issues</a></li>
+		<li><a href ="#DevelopmentalInitiatives">Developmental Initiatives</a></li>
+		<li><a href="#OnlineInteractions">Online Interactions</a></li>
+	</ul>
+		<br><br><br>
+		<li><a href="#SendReportCard">Send Report Card</a></li><br><br><br>
+		<li><a href="#PostToLocality">Post To Locality</a></li><br><br><br>
+		<li><a href="#OrganizeDebate">Organize Debate</a></li><br><br><br>
+		<li><a href="ecampaign.html">E-Campaigning</a></li><br><br><br>
+	</ul>
+</div>
+
+<br><br><br>
+<img src="{{user.get_profile.photo}}" width="300px" height="300px" align="right">
+<div id="table">
+<table border="2" align="top" id="table1">
+	<tr>
+		<td colspan=2 align="center"><b>Politician Information</b></td>
+	</tr>
+	<tr>
+		<td><b>Name: </b></td>
+		<td>{{user.first_name}}</td>
+	</tr>
+	<tr>
+		<td><b>Locality: </b></td>
+		<td>{{user.get_profile.locality}}</td>
+	</tr>
+	<tr>
+		<td><b>Issues Solved</b></td>
+		<td>Insert Solved Issues</td>
+	</tr>
+	<tr>
+		<td><b>Debates Organized</b></td>
+		<td>Insert Debates Organized</td>
+	</tr>
+	<tr>
+		<td><b>Online Interactions</b></td>
+		<td>Insert Number of Interactions</td>
+	</tr>
+</table>
+</div>
+</body>
+</html>

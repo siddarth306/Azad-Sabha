@@ -1,0 +1,55 @@
+{% extends 'public/homepage2.html' %}
+
+{%block content %}
+<div id="wrap" style="padding: 20px;">
+<div style="width:100%;height:50px;background:#333;border-radius:10px;">
+<div style="width:70%;height:50px;background:#333;margin:auto;">
+<form class="navbar-search pull-left" id="searchElements" style="" method = "POST"  action = "/search/">{% csrf_token %}
+                                <ul>
+                                   <li style="display:inline;"><input type="text" name="search" class="search-query" style="height:35px;width:500px;margin-top:2px;border-radius:0px;border-top-left-radius:14px;border-bottom-left-radius:14px;" placeholder="Search" value="{{query}}"></li>
+                                   <li style="display:inline;">
+                                     <div class="styled-select" style="height:33px;">
+                                        <select name="cars" style="height:35px;width:150%; " >
+                                          <option value="Issue" style="color:#333;padding:5px 0;">Issues</option>
+                                          <option value="Politician " style="color:#333;padding:5px 0;">Politician</option>
+                                       </select>
+
+                                    </div>
+                                    </li>
+                                    <li><button type="submit" value="Submit" class="btn btn-inverse " style="margin-top:2px;height:35px;width:120px;align:left;border-top-right-radius:14px;border-bottom-right-radius:14px;vertical-align:middle">
+  <i class="icon-search icon-white"></i>Search
+</button></li>
+                                </ul>
+                                
+                                </form>
+                                </div>
+                                </div>
+                                <br>
+                                <br>
+
+{%if results %}
+	<p style="font-size: 1.8em; font-family:'Helvetica',Arial, sans-serif;">Search Results for "{{query}}" in <i><b>{{search}}'s</b></i></p>
+  <br>
+
+	{%if search == "Issue" %}
+		{%for p in results %}
+<div style="font-size:1.2em;">
+			<a href="/post/{{p.id}}"> {{p.subject}}
+      </a><label style="float:right;font-size:1.0em;">{{p.Date}}</label></div>
+      <label style="font-size:1.1em;">{{p.post}}</label>
+
+      <br>
+      <hr style="border-top: 1px solid #000;border-bottom: transparent">
+      
+		{%endfor%}
+	{%else%}
+		{%for p in results %}
+			<a href=""> {{p.last_name}} </a>
+
+		{%endfor%}
+	{%endif%}
+{%else%}
+	<p style="margin:5%;font-size:2.5em;">Sorry "{{query}}" did not match any search results</p>
+{%endif%}
+</div>
+{%endblock%}

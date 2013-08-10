@@ -1,0 +1,39 @@
+{% extends 'public/base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+{%block css%}
+<link rel="stylesheet" type="text/css" href="/media/css/navbar.css">
+<link rel="stylesheet" type="text/css" href="/media/css/jquery.custom-scrollbar.css">
+
+{%endblock%}
+</head>
+
+<body>
+	{%block content%}
+	<h1 style="font-size">
+	<p style="font-size:1.3em;padding-top: 30%;"><b>Name: {{user.first_name}} {{user.last_name}}</p>
+	<p style="font-size:1.3em;padding-top: 30%;">Email  : {{user.email}}</p>
+	<p style="font-size:1.3em;padding-top: 30%;">Locality : {{user.get_profile.locality}}</p>
+	<p style="font-size:1.3em;padding-top: 30%;">DOB      : {{user.get_profile.DOB}}</p>
+	<p style="font-size:1.3em;padding-top: 30%;">Current Status: {{PoliticianProfile.status}}</p>
+	<p style="font-size:1.3em;padding-top: 30%;">Qualification : {{PoliticianProfile.qualification}}</b></p>
+	<br><br><br>
+	<table style="border: 1px solid gray;padding: 5px;background:#f0f0f0; font-size:1.5em;" \>
+		 
+		<tr><td  align="center" colspan="2" style="font-size:1.8em" >Report Card</td>
+			
+	    </tr>
+		<tr><td  align="center">Issues Posted</td>
+			<td  align="center">{{Issues_posted}}</td>
+		</tr>
+		<tr><td  align="center">Pending Issues</td>
+			<td  align="center">{{Pending_issues}}</td>
+		</tr>
+		<tr>
+		<td align="center"><b>Solved Issues</b></td>
+		<td align="center">{{Solved_issues}}</td>
+	</tr>
+	</table>
+	{%endblock%}
+</body>

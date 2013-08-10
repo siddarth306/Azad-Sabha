@@ -1,0 +1,246 @@
+{% extends "public/base.html"%}
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+    {%block js%}
+
+    <script src="/media/jquery/jquery.js"></script>
+    <script src="/media/jquery/bootstrap-dropdown.js"></script>
+    <script type="text/javascript" src="/media/jquery/navbar.js"></script>
+
+
+    {%endblock%}
+
+    {%block css%}
+   
+    <link href="/media/css/boot2.css" rel="stylesheet"> 
+     <link rel="stylesheet" type="text/css" href="/media/css/navbar.css">
+
+    {%endblock%}
+    </head>
+    {%block navi%}{% load url from future %}
+    <body  id="back" style="">
+        
+        <div class="head">
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <ul class="nav">
+                            <li class="active"><a  href="#">Azad Sabha</a></li>
+                        </ul>
+
+
+                        <ul class="nav pull-right">
+                            <li><form class="navbar-search pull-left" id="searchElements" method = "POST"  action = "/search/">{% csrf_token %}
+                                <ul>
+                                   <li style="display:inline;"><input type="text" name="search" class="search-query" style="height:22px;margin-top:2px;border-radius:0px;border-top-left-radius:14px;border-bottom-left-radius:14px;" placeholder="Search"></li>
+                                   <li style="display:inline;">
+                                     <div class="styled-select">
+                                        <select name="cars" style="height:22px; " id="select1">
+                                        <option value="Issue" style="background:#666666;">Select</option>
+                                          <option value="Issue" style="color:#333;">Issues</option>
+                                          <option value="Politician " style="color:#333;">Politician</option>
+                                       </select>
+
+                                    </div>
+                                    </li>
+                                    <li><button type="submit" value="Submit" class="btn btn-inverse " style="margin-top:2px;height:22px;width:80px;align:left;border-top-right-radius:14px;border-bottom-right-radius:14px;vertical-align:middle">
+  <i class="icon-search icon-white"></i>Search
+</button></li>
+                                </ul>
+                                
+                                </form>
+                            </li>
+                            {%if user.is_authenticated %} 
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{user.first_name}}<b class="caret"></b></a>
+                                <ul class="dropdown-menu user-det" style="background:#444">
+                                    <li class="socials" style="width:100%;"><a style="color:#ccc;" href="/set/">Settings</a></li>
+                                    <li class="socials" style="width:100%;"><a style="color:#ccc;"  href="{% url 'homepage_profile' %}" >Profile</a></li>
+                                    <li class="socials" style="width:100%;"><a style="color:#ccc;"  href="{% url 'homepage_logout' %}">Logout</a></li>                               
+                                </ul>
+                            </li>
+                             {%else%}
+                                <li class="dropdown" id="menu1">
+             <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+               Login
+                <b class="caret"></b>
+            </a>
+            <div class="dropdown-menu" style="background:#444;width:460px;padding:5px;">
+                <ul>
+                    <li  style="display:inline;">
+                        <form style="margin: 0px" accept-charset="UTF-8" action="." method="POST">{%csrf_token%}
+                            <div style="margin:0;padding:0;display:inline">
+                                <input name="utf8" type="hidden" value="&#x2713;" />
+                                <input name="authenticity_token" type="hidden" value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40=" />
+                            </div>
+                            <fieldset class='textbox' style="padding:5px;width:230px;border-right:1px solid #ccc;">
+                               
+                                <input  name="username" id="username" style="margin-top:2px" type="text" placeholder="Username" />
+                                <input type="password" name="password" id="password" style="margin-top: 2px" type="password" placeholder="Passsword" />
+                                <ul style="margin:0;padding:0;"><li style="display:inline;">
+                                 <input type="checkbox" id="checkbox" /></li>
+                                 
+
+                                 <li style="display:inline;"><label style="color:#ccc;white-space:nowrap;">Remember me</label></li>
+                                 <li style="display:inline;">
+                                 <a href="/password_reset/" style="color:#ccc">Forgot Password? click here</a></li>
+                             </ul>
+                                <input class="btn btn-primary" name="commit" type="submit" value="Log In" />
+                                 
+
+                            </fieldset>
+                        </form>
+                    </li>
+                    <li style="display:inline;"><div style="width:190px;height:128px;padding-left:4px;">
+                        <div style="width:100%;">Alternatively, Login with</div><div style="width:100%;"><i class="icon-white icon-download" style="margin-left:83px;"></i></div>
+                            <div style="width:110px;margin:auto;">
+                                <a href="/accounts/login/facebook/" style="height:19px;cursor:hand;width:90px;margin:0;padding:0px;" >
+                                    <ul style="margin:0;padding:0;">
+                                        <li style="display:inline;"><img src="/media/icons/facebook.png" style="width:20px;height:20px;"></li><li  style="display:inline;width:5px;height:20px;"></li><li style="display:inline;"><p style="color:#466cb0;"><i><b>Facebook</b></i></p></li>
+                                    </ul>
+                                </a>
+                            </div>
+                            <div style="width:100px;margin:auto;">
+                                <a href="" style="height:19px;cursor:hand;width:80px;margin:0;padding:0px">
+                                    <ul  style="margin:0;padding:0;">
+                                        <li style="display:inline;"><img src="/media/icons/twitter-oauth.png" style="width:20px;height:20px;"></li><li  style="display:inline;width:5px;height:20px;"></li><li style="display:inline;"><p style="color:#00aced;"><i><b>Twitter</b></i></p></li>
+                                    </ul>
+                                </a>
+                            </div>
+                            <div style="width:100px;margin:auto;">
+                                <a href="" style="height:19px;cursor:hand;width:80px;margin:0;padding:0px">
+                                    <ul  style="margin:0;padding:0;">
+                                        <li style="display:inline;"><img src="/media/icons/google_logo.jpg" style="width:20px;height:20px;"></li><li  style="display:inline;width:5px;height:20px;"></li><li style="display:inline;"><p style="color:#c33b2b;"><i><b>Google</b></i></p></li>
+                                    </ul>
+                                </a>
+                            </div>
+                            
+                        </div>
+                    </li>
+                </ul>
+           </li>
+                <li style="float:right;"><a id="signUp"  href="/signup/"><b>Sign Up</b></a></li>
+                {%endif%}
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>  
+        <!--.............................................................................................................-->
+        
+        <!--.............................................Navigation Bar...................................................-->
+        <div style="background-color: rgba(0,145,200,0.0);padding-top:10px;height:60px; background-size:100% 100%; border-radius:8px; margin:0 auto; width: 570px; position: relative;">  
+    	    <div style="background-color: rgba(84,99,107,0.0); height:55px; border-radius: 8px 8px 0px 0px; width:100%; position: absolute; ">       
+                <ul style="padding-left:0%; height: 62px;width:570px;" id="subnav">
+                    <li >
+                        <a class="elements"  id="home" href="/home/">
+                            <div style="width:23px;height:20px;margin:auto;background-image:url('/media/icons/home1.png')">
+                            </div>
+                            <p style="margin-top:3%;">Home</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="elements2" id="no-field" href="#" style="cursor:default;">
+                            <p style = "margin-top: 3%;"></p>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a class="elements" id="locality" href="/locality/">
+                            <div style="width:20px;height:20px;margin:auto;background-image:url('/media/icons/locality1.png')">
+                            </div> 
+                            <p style = "margin-top: 3%;">Locality</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="elements2" id="no-field" href="#" style="cursor:default;">
+                            <p style = "margin-top: 3%;"></p>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a class="elements" id="posts" href="/postproblem/" >
+                            <div style="width:16px;height:19px;margin:auto;background-image:url('/media/icons/posts1.png')">
+                            </div>
+                            <p style = "margin-top: 3%;">Posts</p>
+                        </a>
+                    </li>    
+                    <li>
+                        <a class="elements2" id="no-field" href="#" style="cursor:default;">
+                            <p style = "margin-top: 3%;"></p>
+                        </a>
+                    </li>       
+                    
+                    <li>
+                        <a class="elements" id="feedback" href="/feedback/">
+                            <div style="width:18px;height:20px;margin:auto;background-image:url('/media/icons/feedback11.png')"> 
+                            </div>
+                            <p style = "margin-top: 3%;">Feedback</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="elements2" id="no-field" href="#" style="cursor:default;">
+                            <p style = "margin-top: 3%;"></p>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a class="elements" id="aboutus" href="/aboutus/">
+                            <div style="width:23px;height:20px;margin:auto;background-image:url('/media/icons/aboutus1.png')">
+                            </div>
+                            <p style = "margin-top: 3%;">About Us</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <!--.............................................................................................................-->
+        <br>
+        {%endblock%}
+
+        {%block footer%}
+        <div id="foot" style="margin:auto;">
+            <ul style="font-size:1.3em;margin:auto; width:41%;height:18px;margin-top:1%;">
+                <li style="display:inline;">
+                    <a href="/home/" style="color:#FB8B00">Home</a>
+                </li>
+                <li style="display:inline;">
+                    <label style="color:#FB8B00">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                </li>
+                <li style="display:inline;">
+                    <a href="/locality/" style="color:#FB8B00">Locality</a>
+                </li>
+                <li style="display:inline;">
+                    <label style="color:#FB8B00">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                </li>
+                <li style="display:inline;">
+                    <a href="/post/" style="color:#FB8B00">Post</a>
+                </li>
+                <li style="display:inline;">
+                    <label style="color:#FB8B00">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                </li>
+                <li style="display:inline;">
+                    <a href="/feedback/" style="color:#FB8B00">Feedback</a>
+                </li>
+                <li style="display:inline;">
+                    <label style="color:#FB8B00">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                </li>
+                <li style="display:inline;">
+                    <a href="/aboutus/" style="color:#FB8B00">About Us</a>
+                </li>
+            </ul>
+            
+
+        </div>
+       
+            
+        {%endblock%}
+    </body>
+</html>
+

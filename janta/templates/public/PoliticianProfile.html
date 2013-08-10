@@ -1,0 +1,126 @@
+{% extends 'public/homepage2.html' %}
+
+{% block css%}
+<link href="/media/css/boot2.css" rel="stylesheet"> 
+<link rel="stylesheet" type="text/css" href="/media/css/style2.css">
+<link rel="stylesheet" type="text/css" href="/media/css/navbar.css">
+<link rel="stylesheet" type="text/css" href="/media/css/user.css">
+<body>
+{%endblock%}
+
+{%block js%}
+<script src="/media/jquery/jquery.js"></script>	
+<script src="/media/jquery/bootstrap-dropdown.js"></script>
+
+
+<script src="/media/jquery/toggle-tabs.js"></script>	
+
+<script type="text/javascript" src="/media/jquery/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="/media/jquery/navbar.js"></script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js?ver=1.7.2%22"></script>
+{%endblock%}
+
+{% block content %}
+<div id="wrap">
+	<br>
+	<div id="user_data"  >
+		<br>
+		<address style="font-size: 2.4em; font-family:'Helvetica',Arial, sans-serif;height:">{{user.first_name}} {{user.last_name}}</address>
+		
+		<address>{{PoliticianProfile.status}}</address>
+		<address>Bharati Janata Party</address>
+		<hr style="border-top:1px solid #333;border-botttom:transparent;"><br><br>
+
+		
+		<div class="tab-content"style="padding-right:10px;">
+			<div class="tab-pane active" id="tabs-side">
+
+				<div class="tabbable tabs-left" >
+					<ul class="nav nav-tabs span2" id="MyTab" style="font-size:1.2em;background:#ddd;margin-right:0px;">
+						<li class="active"><a href="#Profile"  data-toggle="tab">Profile</a></li>
+						<li><a href="#E-Campaign"  data-toggle="tab">E-Campign</a></li>
+						<li><a href="#Interaction"  data-toggle="tab">Interaction</a></li>
+
+					</ul>
+					<div class="tab-content" style="background:#fff;padding:2%;">
+						<div class="tab-pane fade active in" id="Profile">
+							
+							<br><br><br>
+							<ul style="height:250px;">
+								<li style="display:inline; float:left;width:60%;">
+									<table cellpadding="5" style="font-size:1.2em;">
+											
+										<tr><td><i>Email Id:</i></td>
+											<td>{{user.email}}</td>
+										</tr>
+
+										<tr><td><i>Locality:</i></td>
+											<td>{{user.get_profile.locality}}</td>
+											
+
+										</tr>
+
+										<tr><td>Qualification:</i></td>
+											<td>{{PoliticianProfile.qualification}}</td>
+
+										</tr>
+
+										<tr><td><i>Date of Birth:</i></td>
+											<td> {{user.get_profile.DOB}}</td>
+										</tr>
+									</table>
+								</li>
+
+								<li style="display:inline; float:right;padding:0.5%;border-left:1px solid gray; padding-left:4%; width:30%;"><img src ="/media/{{PoliticianProfile.photo}} "  style="border:5px solid #ababab;"></li>
+							</ul>
+							<br>
+							<hr >
+							<br>
+
+							<p style="font-size: 1.8em; font-family:'Helvetica',Arial, sans-serif;color:gray;">Report Card</p>
+							<table  align="top" style="width:70%;border: 1px"id="table1">
+						
+								<tr>
+									<td><b>Name: </b></td>
+									<td>{{user.first_name}} {{user.last_name}}</td>
+								</tr>
+								<tr>
+									<td><b>Locality: </b></td>
+									<td>{{user.get_profile.locality}}</td>
+								</tr>
+								<tr>
+									<td><b>Issues Posted</b></td>
+									<td>{{Issues_posted}}</td>
+								</tr>
+								<tr>
+									<td><b>Pending Issues</b></td>
+									<td>{{Pending_issues}}</td>
+								</tr>
+								<tr>
+									<td><b>Solved Issues</b></td>
+									<td>{{Solved_issues}}</td>
+								</tr>
+							</table>
+						</div>
+						<div class="tab-pane fade" id="E-Campaign">
+							<a href="/ecamp/" class="btn btn-primary btn-large">E-Campaigning</a>
+								
+						</div>
+						<div class="tab-pane fade" id="Interaction">
+							
+							<p>Under Construction</p>
+						</div>
+						
+				  	</div><!-- /.tab-content -->
+				</div><!-- /.tabbable -->
+			</div>
+		</div>
+		
+
+	
+	<hr>
+</div>
+</div>
+{% endblock %}

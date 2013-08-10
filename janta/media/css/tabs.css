@@ -1,0 +1,17 @@
+#tabMenu {margin:0;padding:0 0 0 15px;list-style:none;height:39px;}
+#tabMenu li {float:left;height:39px;width:39px;cursor:pointer;cursor:hand}
+
+li.twitter {background:url(/media/icons/twitter.png) no-repeat 0 ;}
+li.facebook {background:url(/media/icons/facebook.png) no-repeat 0 ;}
+
+
+
+.box {width:388px;float:right;}
+.boxTop {clear:both;}
+.boxBody {background-color:#282828;width:100%;}
+
+
+.boxBody div.parent {display:none;padding:2%;height:314px;width:375px;}
+.boxBody div.show {display:block;}
+#facebook{background-color: #466cb0;}
+#twitter{background-color: #00aced;}

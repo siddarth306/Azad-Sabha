@@ -1,0 +1,11 @@
+Issues pending :
+
+1. User profile Page.
+2. Politician Profile page.
+3. News updates dyanmically
+4. Search facility 
+5. Locality Page
+6. OAuth
+7. Captcha
+8. Chatroom
+9. User interface

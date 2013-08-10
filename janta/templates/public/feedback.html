@@ -1,0 +1,82 @@
+{% extends 'public/homepage2.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+
+{%block js%}
+
+<script src="/media/jquery/jquery.js"></script>
+<script src="/media/jquery/bootstrap-dropdown.js"></script>
+<script type="text/javascript"src=" http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="/media/jquery/navbar.js"></script>
+
+{%endblock%}
+
+{%block css%}
+<link rel="stylesheet" type="text/css" href="/media/css/navbar.css">
+<link href="http://www.w3resource.com/twitter-bootstrap/twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
+
+{%endblock%}
+</head>
+
+
+<body>
+	{% block content %}
+	<div id="wrap" style="padding:20px;">
+		<h1 style="margin-left:10%; color:grey; font-family:'Helvetica',Arial, sans-serif;">Feedback</h1>
+		<div style="width:90%;margin-left:10%;height:80%;">
+			<form  style="float:left;" action="." method="POST">
+				<div style="width:100%;">
+					<label>How often do you visit this Website ?</label><br>
+					<input type="radio" name="feedback1" value="Daily">Daily<br>
+					<input type="radio" name="feedback1" value="Several_times_a_week">Several times a week<br>
+					<input type="radio" name="feedback1" value="Once_a_week">Once a week<br>
+					<input type="radio" name="feedback1" value="Several_times_a_month">Several times a month<br>
+					<input type="radio" name="feedback1" value="Once_a_month">Once a month <br>
+					<input type="radio" name="feedback1" value="Less_than_Once_a_month">Less than Once a month <br>
+				</div>
+				<hr style="border-top:1px solid gray;width:990px;">
+				<br>
+				<div style="width:100%;">
+					
+					<label>
+						How can we improve our website :
+					</label><br>
+					<textarea name="feedback2" style="width:400px;background:#eee;"rows="10" cols="100"></textarea>
+				</div><br><hr style="border-top:1px solid gray;width:990px;">
+				<br><br>
+				<div style="width:100%;">
+					<label>
+						Any features that can be added to the website :
+					</label><br>
+					<textarea name="feedback3" style="width:400px;background:#eee;"rows="10" cols="100"></textarea>
+				</div><br><hr style="border-top:1px solid gray;width:990px;">
+				<br><br>
+				<div style="width:100%;">
+					<label>
+						What do you think about our website( on a scale of 1-10) :
+					</label>
+					<select name="feedback4">
+						<option value="val1">1</option>
+						<option value="val2">2</option>
+						<option value="val3">3</option>
+						<option value="val4">4</option>
+						<option value="vla5">5</option>
+						<option value="val6">6</option>
+						<option value="val7">7</option>
+						<option value="val8">8</option>
+						<option value="val9">9</option>
+						<option value="val10">10</option>
+						</select>
+					</div><br><hr style="border-top:1px solid gray;width:990px;">
+				<br><br>
+					<div>
+						<input type="submit" class="btn btn-success"name="feedback4" value="submit"></input>
+						<br><br><br>		
+				</div>
+			</form>
+		</div>
+	</div>
+	{% endblock %}
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'public/homepage2.html' %}
+{% block content %}
+
+
+<div id="wrap">
+	{% if has_account %}
+		<p style="margin:5%;font-size:2.5em;">This account has already been activated.</p>
+
+	{%else%}
+		<p style="margin:5%;font-size:2.5em;">This account has not yet been activated.</p>
+		<p style="margin:5%; font-size:1.5em;"> Please check your mail for an activation link to activate this account.</p>
+	{%endif%}
+	{% if success %}
+		<p style="margin:5%;font-size:2.5em;"><i>Your Account has been activated.</i></p>
+		<p style="margin:5%; font-size:1.5em;"> Thank You For Registering Your Account With Us.</p>
+</div>
+{%endblock%}

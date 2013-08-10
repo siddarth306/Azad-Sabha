@@ -1,0 +1,90 @@
+{% extends 'public/homepage2.html' %}
+<html>
+{% block content %}
+{% block css%}
+<link href="/media/css/boot2.css" rel="stylesheet"> 
+<link rel="stylesheet" type="text/css" href="/media/css/style2.css">
+<link rel="stylesheet" type="text/css" href="/media/css/navbar.css">
+<link rel="stylesheet" type="text/css" href="/media/css/user.css">
+<body>
+{%endblock%}
+
+{%block js%}
+<script src="/media/jquery/bootstrap-dropdown.js"></script>
+<script src="/media/jquery/jquery.js"></script>
+
+<script type="text/javascript" src="/media/jquery/navbar.js"></script>
+<script type="text/javascript" src="/media/jquery/user.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js?ver=1.7.2%22"></script>
+{%endblock%}
+
+<div id="wrap">
+	<br>
+	<div id="user_data" >
+		<p style="font-size: 2.4em; font-family:'Helvetica',Arial, sans-serif;">{{user}}</p>
+		<hr style="color:gray;"><br>
+		<p style="font-size: 1.8em; font-family:'Helvetica',Arial, sans-serif;">Profile</p>
+		
+		<ul style="position:relative; width:100%;height: 300px; margin-left:5%;">
+			<li style="display:inline; border-right:1px solid gray; width: 60%;">
+				<form>
+			<table cellpadding="5">
+				<tr style=""><td >Name</td>
+					<td>{{user.name}}</td>
+
+				</tr>
+				
+				<tr><td>Email Id</td>
+					<td>{{user.email}}</td>
+				</tr>
+
+				<tr><td>Locality</td>
+					<td>{{user.get_profile.locality}}</td>
+					<td style="display:inline;color:blue;cursor: hand;">edit</td>
+
+				</tr>
+
+				<tr><td>Place</td>
+					<td>{{user.get_profile.city}}</td>
+					<td style="display:inline;color:blue;cursor: hand;">edit</td>
+
+				</tr>
+
+				<tr><td>Date of Birth</td>
+					<td>{{user.DOB}}</td>
+				</tr>
+				</table>
+
+				</form>
+			
+			</li>
+			<li style="display:inline;float:right; width:30%;"><img src="/media/icons/user.png" style="border: 1px solid #565656;"></li>
+		</ul>
+
+		<hr style="color:gray; position: relative;border:1px;">
+		<p  id="settings" style="font-size: 1.8em; font-family:'Helvetica',Arial, sans-serif; background: #a0a0a0; padding-left:5%;cursor: hand">Settings >></p>
+		<div id="change_password">
+			<p>Change Password</p>
+			<form>
+			<table id="password">
+				<tr><td>Enter current password: </td>
+					<td><input type="password" name="curr_pass"></input></td></tr>
+				<tr><td>Enter current password: </td>
+					<td><input type="password" name="new_pass"></input></td></tr>
+				<tr><td>Enter current password: </td>
+					<td><input type="password" name="renew_pass"></input></td></tr>
+			</table>
+
+			<p>Change Profile Image</p>
+			
+			<input type="submit" value="Save"></submit>
+			<input type="button" value="Cancel" onclick=location.href='/profile/';>
+			</form>
+		</div>
+
+	</div>
+
+</div>
+{% endblock %}
+</body>
+</html>

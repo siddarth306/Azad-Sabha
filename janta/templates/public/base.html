@@ -1,0 +1,17 @@
+
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
+    <title>{%block title%}{%endblock%}</title>
+    {%block js%}{%endblock%}
+    {%block css%}{%endblock%}
+</head>
+<body>
+    <div id="top"></div>
+    <div id="navi">{% block navi%}{%endblock%}</div>
+    <div id="loginbox">{%block loginbox%}{%endblock%}</div>
+    <div id="content">{%block content%}{%endblock%}</div>
+    <div id="sections">{%block sections%}{%endblock%}</div>
+    <div id="footer">{%block footer%}{%endblock%}</div>
+</body>
+</html>
